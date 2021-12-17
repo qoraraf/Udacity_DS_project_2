@@ -1,4 +1,25 @@
-# Disaster Response Pipeline Project
+# Disaster Response Pipeline Web-Application
+
+### Introduction:
+This project is a part of the Data Scientist nanodegree at Udacity with partnership of Misk & Sdaia. Its goal is to deploy an NLP model to a web application that is then used to filter incoming diasters' help request messages to ease the organizations work.<br>
+The application trains any new data and classifies incoming messages
+
+### Files:
+1. data: 
+    - DisasterResponse.db, this is a database where data is fetched. It is produced by "process_data.py"
+    - ETL Pipeline Preparation.ipynb
+    - ML Pipeline Preparation.ipynb
+    - disaster_categories.csv, contains the categories of the messages
+    - disaster_messages.csv, contains the messages
+    - process_data.py, pipeline that cleans data and stores in database
+
+3. models:
+    - classifier.pkl, this is the fitted model constructed by the "train_classifier.py"
+    - train_classifier.py, the ML classifier pipeline py file: it uses the sqlite database to train data within it and returns a model that classifies messages
+
+5. app:
+    - run.py, runs the web app
+    - templates, folder contains html files to return the web app pages
 
 ### Instructions:
 1. Run the following commands in the project's root directory to set up your database and model.
@@ -11,5 +32,5 @@
 2. Run the following command in the app's directory to run your web app.
     `python run.py`
 
-3. Go to http://0.0.0.0:3001/
-# Udacity_DS_project_2
+3. Go to http://0.0.0.0:3001/ (use your localhost url)
+
