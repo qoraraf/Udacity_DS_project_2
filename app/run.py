@@ -47,6 +47,7 @@ def index():
     # create visuals
     # TODO: Below is an example - modify to create your own visuals
     graphs = [
+            # Genre graph
         {
             'data': [
                 Bar(
@@ -62,6 +63,26 @@ def index():
                 },
                 'xaxis': {
                     'title': "Genre"
+                }
+            }
+        },
+            # Category Graph   
+        {
+            'data': [
+                Bar(
+                    x=category_names,
+                    y=category_boolean
+                )
+            ],
+
+            'layout': {
+                'title': 'Distribution of Message Categories',
+                'yaxis': {
+                    'title': "Count"
+                },
+                'xaxis': {
+                    'title': "Category",
+                    'tickangle': 35
                 }
             }
         }
