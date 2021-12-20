@@ -21,6 +21,15 @@ nltk.download('punkt')
 nltk.download('stopwords')
 
 def load_data(database_filepath):
+    """
+    Load table from a database with sqlite engine and create X and Y dataframes
+
+    input:
+    takes the path of the database
+    returns:
+    X dataframe, Y dataframe and list of category names 
+    """
+
     engine = create_engine('sqlite:///{}'.format(database_filepath))
     df = pd.read_sql_table("messagesTab", engine)
     category_names = list(df.columns)
@@ -31,6 +40,13 @@ def load_data(database_filepath):
 
 
 def tokenize(text):
+    """
+    convert text messages to normalized tokens
+    input:
+    takes text messages
+    returns:
+    normalized tokens with PorterStemmer
+    """
     #Convert to lowercase
     text = text.lower()
     #Remove punctuation characters
@@ -87,6 +103,11 @@ def evaluate_model(model, X_test, Y_test, category_names):
 
 
 def save_model(model, model_filepath):
+    """
+    save the model to a pickle file and
+    input: model name, and its path
+    output: model
+    """
     with open(model_filepath, 'wb') as f:
         pickle.dump(model, f)
 
