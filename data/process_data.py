@@ -33,7 +33,7 @@ def clean_data(df):
     categories = df['categories'].str.split(";",expand=True)
     categories.loc[0].apply(lambda x: x[:-2])
     row = categories.loc[0]
-    category_colnames = row.apply(lambda x: x[:-2]).tolist()
+    category_colnames = row.apply(lambda x: x[:-2])
     categories.columns = category_colnames
 
     for column in categories:
@@ -41,6 +41,9 @@ def clean_data(df):
         categories[column] =categories[column].apply(lambda x: x[-1:])
         # convert column from string to numeric
         categories[column] = pd.to_numeric(categories[column])
+        # convert all categories to 0s or 1s
+        categories[column] =categories[column].apply(lambda x: 1 if x==2 or x==1 else 0)
+
 
     df.drop("categories",axis=1,inplace=True)
     df = pd.concat([df, categories], axis=1)
@@ -58,7 +61,6 @@ def save_data(df, database_filename):
     Returns:
     None
     """
-    from sqlalchemy import create_engine
     engine = create_engine('sqlite:///{}'.format(database_filename))
     df.to_sql(name='messagesTab', con=engine, if_exists="replace", index=False)
 
