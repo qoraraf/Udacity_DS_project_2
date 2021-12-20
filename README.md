@@ -37,3 +37,7 @@ The application trains any new data and classifies incoming messages
 
 ![webapp](https://user-images.githubusercontent.com/29784542/146616307-66055c6e-f762-4424-9957-11ec9c2e6aa1.PNG)
 ![classified](https://user-images.githubusercontent.com/29784542/146616472-595cf4e0-813c-42dc-b4ff-1abc07c1f6c5.PNG)
+
+### Acknowledgment:
+In this project which is part of the nanodegree in Data Scientist at Udacity I have used a dataset from Figure 8
+
